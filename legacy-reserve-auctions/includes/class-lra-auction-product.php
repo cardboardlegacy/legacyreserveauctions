@@ -1,6 +1,14 @@
-<?php
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
+}
+
+class WC_Product_Auction extends WC_Product
+{
+    public function __construct($product)
+    {
+        $this->product_type = 'auction';
+        parent::__construct($product);
+    }
 }
 
 class LRA_Auction_Product
@@ -21,14 +29,7 @@ class LRA_Auction_Product
      */
     public function register_auction_product_type()
     {
-        class WC_Product_Auction extends WC_Product
-        {
-            public function __construct($product)
-            {
-                $this->product_type = 'auction';
-                parent::__construct($product);
-            }
-        }
+        // No nested class declaration here
     }
 
     /**
